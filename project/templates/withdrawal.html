@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Withdrawal
+{% endblock %}
+
+{% block main %}
+<div class="card border-danger mx-auto" style=" width: 32rem;">
+    <div class="card-header bg-danger">
+      <strong>WITHDRAWAL</strong>
+    </div>
+    <div class="card-body">
+
+        <form action="/withdrawal" method="post">
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input class="form-control mx-auto w-auto" name="description" placeholder="Description" type="text">
+            </div>
+
+            <div class="mb-3">
+                <label for="amount" class="form-label">Amount</label>
+                <input class="form-control mx-auto w-auto" name="amount" placeholder="Amount" type="text">
+            </div>
+
+            <div class="mb-3 ">
+                <label for="method" class="form-label">Choose an option</label>
+                <select class="form-select form-select mx-auto" style="width: 12rem;" name="method">
+                    <option disabled selected>Method</option>
+                    <option disabled value="Check">Check</option>
+                    <option value="Bank transfer">Bank transfer</option>
+                    <option value="Payment">Payment</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="account_number" class="form-label">Transfer to:</label>
+                <input class="form-control mx-auto w-auto" name="account_number" placeholder="Account number" type="text">
+            </div>
+
+            <button class="btn btn-outline-danger" type="submit">Withdraw</button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
