@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Deposits
+{% endblock %}
+
+{% block main %}
+<div class="card border-success mx-auto" style="width: 32rem;">
+    <div class="card-header bg-success">
+      <strong>DEPOSIT</strong>
+    </div>
+    <div class="card-body">
+
+      <form action="/deposit" method="post">
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="description" placeholder="Description" type="text">
+        </div>
+
+        <div class="mb-3">
+            <label for="amount" class="form-label">Amount</label>
+            <input class="form-control mx-auto w-auto" name="deposit" placeholder="Amount" type="text">
+        </div>
+
+        <div class="mb-3">
+            <label for="method" class="form-label">Choose an option</label>
+            <select class="form-select form-select mx-auto" style="width: 12rem;" name="method">
+                <option disabled selected>Method</option>
+                <option value="Check">Check</option>
+                <option disabled value="Bank transfer">Bank transfer</option>
+                <option disabled value="Payment">Payment</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="file" class="form-label">Choose file</label>
+            <input class="form-control form-control-sm" id="file" type="file">
+        </div>
+
+            <button class="btn btn-outline-success" type="submit">Make a deposit</button>
+    </form>
+
+    </div>
+</div>
+
+{% endblock %}
