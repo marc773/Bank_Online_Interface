@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <!--Info on owner-->
+    <section class="bg-dark p-0 p-lg-0 pt-lg-0 text-center text-sm-start">
+        <div class = "container mb-3">
+            <h5><strong class="text-light">Account owner : <span class="text-info"> {{ username }}</span></strong></h5>
+        </div>
+        <div class = "container mb-3">
+            <h5><strong class="text-light"> Current amount : <span class="text-info"> € {{ balance }}</span></strong></h5>
+        </div>
+        <div class = "container mb-3">
+            <h5><strong class="text-light">Account number : <span class="text-info"> {{ account_number }}</span></strong></h5>
+        </div>
+    </section>
+
+    <!--Title of table-->
+    <section class=" text-secondary">
+        <div class="container">
+            <h4 class="mb-3 bg-info text-primary" class ="table-title">Recent transactions</h4>
+        </div>
+    </section>
+
+    <!--Table of transactions-->
+    <section class="bg-light text-secondary">
+        <table class="table table-striped table-hover">
+        <thead class="bg-primary">
+            <tr>
+                <th>Date</th>
+                <th>Account number</th>
+                <th>Description</th>
+                <th>Method</th>
+                <th>Withdrawal</th>
+                <th>Deposit</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for view in views %}
+            <tr>
+                <td>{{ view['time'] }}</td>
+                <td>{{ view['accountNumber'] }}</td>
+                <td>{{ view['description'] }}</td>
+                <td class="text-info">{{ view['method'] }}</td>
+                <td class="text-danger">-{{ view['withdrawal'] }}</td>
+                <td class="text-success">{{ view['deposit'] }}</td>
+                <td class="text-primary"><strong>{{ view['balance'] }}</strong></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    </section>
+
+{% endblock %}
