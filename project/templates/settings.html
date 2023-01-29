@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Settings
+{% endblock %}
+
+{% block main %}
+<!--Good form-->
+<section class="p-0">
+    <form action="/settings" method="post">
+            <div class="pt-0">
+                <h4 class='action'> What do you want to do?</h4>
+                <div class="card border-success mx-auto" style="width: 16rem;">
+                    <div class="card-body bg-primary text-center">
+                        <!--Options-->
+                        <select class="form-select form-select sm" name="action">
+                            <option disabled selected value="">Choose an action</option>
+                            {% for action in actions %}
+                            <option value="{{ action }}">{{ action }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        <!--BOXES-->
+        <div class="row text-center g-4 pt-5 mt-3">
+            <div class="col-md">
+                <div class="card bg-dark text-light">
+                    <div class="card-body text-center">
+                        <!--change username form-->
+                        <h3>Change username</h3>
+                        <div class="mb-3">
+                            <label for="new_username" class="form-label">Username</label>
+                            <input class="form-control mx-auto w-auto" name="new_username" placeholder="New username" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <label for="user_confirmation" class="form-label">Confirm username</label>
+                            <input class="form-control mx-auto w-auto" name="user_confirmation" placeholder="Confirm username" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="card bg-secondary text-light">
+                    <div class="card-body text-center">
+                        <!-- change password form-->
+                        <h3>Change password</h3>
+                        <div class="mb-3">
+                            <input class="form-control mx-auto w-auto" name="old_password" placeholder="Old Password" type="password">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control mx-auto w-auto" name="new_password" placeholder="New Password" type="password">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Password confirmation" type="password">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="card bg-dark text-light">
+                    <div class="card-body text-center">
+                        <!-- delete account card-->
+                        <h3>Delete your account</h3>
+                        <div class="mb-3">
+                            <input class="form-control mx-auto w-auto" name="username" placeholder="Type username" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control mx-auto w-auto" name="password" placeholder="Enter Password" type="password">
+                        </div>
+                        <label for="delete" class="form-label bg-dark text-danger">
+                            This action is ireversible. Once you delete your account all the data will be deleted.
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" mb-3 pt-3">
+            <button class="btn btn-outline-primary btn-lg" type="submit">Submit</button>
+        </div>
+    </form>
+</section>
+
+{% endblock %}
